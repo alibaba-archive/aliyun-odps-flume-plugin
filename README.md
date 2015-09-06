@@ -64,12 +64,6 @@ Following are some examples that use Flume along with this plugin to upload stru
 
 - [Flume User Guide](https://flume.apache.org/FlumeUserGuide.html)
 
-## Roadmap
----
-
-- Add unit tests.
-- Support events containing json data.
-
 ## Authors && Contributors
 ---
 
