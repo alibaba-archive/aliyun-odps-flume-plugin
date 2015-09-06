@@ -9,7 +9,7 @@ The ODPS sink streams events data into a ODPS table. It has the following featur
 - Highly customizable.
 - Compatible with all the features of Flume, such as fan-in and fan-out flows, contextual routing and backup routes (fail-over) for failed hops.
 
-For non-developer users, please see [wiki](http://gitlab.alibaba-inc.com/aliopensource/aliyun-odps-flume-plugin/wikis/home).
+For non-developer users, please see [wiki](http://github.com/aliyun/aliyun-odps-flume-plugin/wiki/home).
 
 ## Getting Started
 ---
@@ -27,7 +27,7 @@ To get started using this plugin, you will need three things:
 Clone the project from gitlab:
 
 ```
-$ git clone git@gitlab.alibaba-inc.com:tianli.tl/aliyun-odps-flume-plugin.git
+$ git clone git@github.com:aliyun/aliyun-odps-flume-plugin.git
 ```
 
 Use maven to build the package:
@@ -48,16 +48,16 @@ $ mkdir {YOUR_FLUME_DIRECTORY}/plugins.d
 $ mv target/odps_sink/ {YOUR_FLUME_DIRECTORY}/plugins.d/
 ```
 
-The ODPS sink should be available for Flume now. You can use this sink by set the type of the Flume sink to **com.aliyun.odps.flume.sink.OdpsSink**. Details about the configure paramters of the ODPS sink are listed in [Sink Paramters](http://gitlab.alibaba-inc.com/aliopensource/aliyun-odps-flume-plugin/wikis/sink-parameter).
+The ODPS sink should be available for Flume now. You can use this sink by set the type of the Flume sink to **com.aliyun.odps.flume.sink.OdpsSink**. Details about the configure paramters of the ODPS sink are listed in [Sink Paramters](http://github.com/aliyun/aliyun-odps-flume-plugin/wiki/sink-parameter).
 
 ## Tutorial
 ---
 
 Following are some examples that use Flume along with this plugin to upload structured log data to ODPS table. This tutorial is designed for the ODPS users who had not used Flume before, and will illustrate the basics about how to use Flume to upload streaming data into ODPS.
 
-- [Basic example](http://gitlab.alibaba-inc.com/aliopensource/aliyun-odps-flume-plugin/wikis/basic-example)
-- [Custom partition values with event header](http://gitlab.alibaba-inc.com/aliopensource/aliyun-odps-flume-plugin/wikis/custom-partition)
-- [Multiplexing the flow](http://gitlab.alibaba-inc.com/aliopensource/aliyun-odps-flume-plugin/wikis/multiplexing)
+- [Basic example](http://github.com/aliyun/aliyun-odps-flume-plugin/wiki/basic-example)
+- [Custom partition values with event header](http://github.com/aliyun/aliyun-odps-flume-plugin/wiki/custom-partition)
+- [Multiplexing the flow](http://github.com/aliyun/aliyun-odps-flume-plugin/wiki/multiplexing)
 
 ## Useful Links
 ---
