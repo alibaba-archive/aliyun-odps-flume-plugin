@@ -48,6 +48,13 @@ $ mkdir {YOUR_FLUME_DIRECTORY}/plugins.d
 $ mv target/odps_sink/ {YOUR_FLUME_DIRECTORY}/plugins.d/
 ```
 
+Optionally, you can check if the plugin is already in the directory:
+
+```
+$ ls {YOUR_FLUME_DIRECTORY}/plugins.d
+odps_sink
+```
+
 The ODPS sink should be available for Flume now. You can use this sink by set the type of the Flume sink to **com.aliyun.odps.flume.sink.OdpsSink**. Details about the configure paramters of the ODPS sink are listed in [Sink Paramters](http://github.com/aliyun/aliyun-odps-flume-plugin/wiki/sink-parameter).
 
 ## Tutorial
