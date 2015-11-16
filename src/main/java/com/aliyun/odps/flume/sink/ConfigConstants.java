@@ -22,6 +22,9 @@ package com.aliyun.odps.flume.sink;
  * Constants used for configuration of OdpsSink
  */
 public class ConfigConstants {
+
+    private ConfigConstants() {
+    }
     /**
      * Aliyun account accessID
      */

@@ -12,7 +12,7 @@
 
     <groupId>com.aliyun.odps</groupId>
     <artifactId>odps-flume-plugin</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0</version>
     <packaging>jar</packaging>
     <name>odps-flume-plugin</name>
     <description>flume plugin sink to Aliyun ODPS</description>

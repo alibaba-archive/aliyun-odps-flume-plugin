@@ -196,6 +196,7 @@ public class OdpsSink extends AbstractSink implements Configurable {
         // Initial datahub writers
         Account account = new AliyunAccount(accessId, accessKey);
         Odps odps = new Odps(account);
+        odps.setUserAgent("odps-flume-1.0.0");
         odps.setDefaultProject(project);
         odps.setEndpoint(odpsEndPoint);
         odpsTable = odps.tables().get(table);
