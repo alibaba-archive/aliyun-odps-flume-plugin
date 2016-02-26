@@ -84,8 +84,10 @@ public class OdpsDelimitedTextSerializer implements OdpsEventSerializer {
     public Map<String, String> getRow() throws UnsupportedEncodingException {
         String[] fieldValues = (new String(data, charset)).split(delimiter, -1);
         if (inputColNames.length != fieldValues.length) {
-            throw new RuntimeException(this.getClass().getName() + " getRecordDO() error, odps fields number not " +
-                    "equals fields number.");
+            throw new RuntimeException("Serializing events failed. Check the " +
+                "configuration in serializer. The filednames count (" +
+                inputColNames.length + ") must equals fieldvalues count ( " +
+                fieldValues.length + ")");
         }
         Map<String, String> rowMap = Maps.newHashMap();
         for (int i = 0; i < inputColNames.length; i++) {
