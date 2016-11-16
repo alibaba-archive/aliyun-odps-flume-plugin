@@ -1,10 +1,9 @@
-# ODPS Sink Plugin for Apache Flume
+# Odps Sink Plugin for Apache Flume
 ---
 
-The ODPS sink streams events data into a ODPS table. It has the following features:
+The Odps sink streams events data into a datahub topic. It has the following features:
 
-- Map structured data to corresponding columns in the ODPS table.
-- Support partition table, create partition automatically if not exists.
+- Map structured data to corresponding columns in the datahub topic.
 - Currently only support delimited text data.
 - Highly customizable.
 - Compatible with all the features of Flume, such as fan-in and fan-out flows, contextual routing and backup routes (fail-over) for failed hops.
@@ -60,11 +59,9 @@ The ODPS sink should be available for Flume now. You can use this sink by set th
 ## Tutorial
 ---
 
-Following are some examples that use Flume along with this plugin to upload structured log data to ODPS table. This tutorial is designed for the ODPS users who had not used Flume before, and will illustrate the basics about how to use Flume to upload streaming data into ODPS.
+Following are some examples that use Flume along with this plugin to upload structured log data to Datahub topic. This tutorial is designed for the ODPS users who had not used Flume before, and will illustrate the basics about how to use Flume to upload streaming data into Datahub.
 
 - [Basic example](http://github.com/aliyun/aliyun-odps-flume-plugin/wiki/basic-example)
-- [Custom partition values with event header](http://github.com/aliyun/aliyun-odps-flume-plugin/wiki/custom-partition)
-- [Multiplexing the flow](http://github.com/aliyun/aliyun-odps-flume-plugin/wiki/multiplexing)
 
 ## Useful Links
 ---
@@ -73,7 +70,7 @@ Following are some examples that use Flume along with this plugin to upload stru
 
 ## Authors && Contributors
 ---
-
+- [Ouyang Zhe](https://github.com/oyz)
 - [Yang Hongbo](https://github.com/hongbosoftware)
 - [Tian Li](https://github.com/tianliplus)
 - [Li Ruibo](https://github.com/lyman)

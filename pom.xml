@@ -12,7 +12,7 @@
 
     <groupId>com.aliyun.odps</groupId>
     <artifactId>odps-flume-plugin</artifactId>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
     <packaging>jar</packaging>
     <name>odps-flume-plugin</name>
     <description>flume plugin sink to Aliyun ODPS</description>
@@ -31,6 +31,12 @@
     </licenses>
 
     <dependencies>
+		<dependency>
+			<groupId>com.aliyun.datahub</groupId>
+			<artifactId>aliyun-sdk-datahub</artifactId>
+			<version>2.1.1-public</version>
+        </dependency>
+
         <dependency>
             <groupId>com.aliyun.odps</groupId>
             <artifactId>odps-sdk-core</artifactId>
@@ -120,6 +126,15 @@
                 <version>2.6</version>
                 <configuration>
                     <outputDirectory>${project.build.directory}/odps_sink/lib</outputDirectory>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
                 </configuration>
             </plugin>
         </plugins>
