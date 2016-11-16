@@ -102,4 +102,9 @@ public class OdpsDelimitedTextSerializer implements OdpsEventSerializer {
     public OdpsWriter createOdpsWriter(Table odpsTable, StreamWriter[] streamWriters, String dateFormat) {
         return new OdpsWriter(odpsTable, streamWriters, dateFormat, inputColNames);
     }
+
+    @Override
+    public String[] getInputColumnNames() {
+        return inputColNames;
+    }
 }

@@ -52,4 +52,10 @@ public interface OdpsEventSerializer extends Configurable {
      * @return {@link com.aliyun.odps.flume.sink.OdpsWriter} for writing events.
      */
     public OdpsWriter createOdpsWriter(Table odpsTable, StreamWriter[] streamWriters, String dateFormat);
+
+    /**
+     * Get serializer's column names
+     * @return  column names
+     */
+    public String[] getInputColumnNames();
 }
