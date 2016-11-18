@@ -48,17 +48,18 @@ public class DatahubWriter {
         this.sinkCounter = sinkCounter;
 
         DatahubConfiguration datahubConfiguration = new DatahubConfiguration(
-                new AliyunAccount(configure.getAccessId(),
-                    configure.getAccessKey()),
-                configure.getEndPoint()
-        );
+            new AliyunAccount(configure.getAccessId(), configure.getAccessKey()),
+            configure.getEndPoint());
+        datahubConfiguration.setUserAgent("datahub-flume-plugin-1.1.0");
+
         Project project = Project.Builder.build(configure.getProject(), datahubConfiguration);
         topic = project.getTopic(configure.getTopic());
+
         if (topic == null) {
             throw new RuntimeException("Can not find datahub topic[" + configure.getTopic() + "]");
         }
 
-        if(topic.getShardCount() == 0){
+        if (topic.getShardCount() == 0) {
             throw new RuntimeException("Topic[" + topic.getTopicName() + "] has not active shard");
         }
 
@@ -88,34 +89,39 @@ public class DatahubWriter {
                 PutRecordsResult putRecordsResult = topic.putRecords(recordEntries);
 
                 //write had fail records
-                if(putRecordsResult.getFailedRecordCount() > 0) {
+                if (putRecordsResult.getFailedRecordCount() > 0) {
                     recordEntries = putRecordsResult.getFailedRecords();
-                    //需要重试
-                    if(configure.getRetryTimes() < 0 ||
-                            (configure.getRetryTimes() >= 0 && retryCount < configure.getRetryTimes())){
-                        //轮训写shard, 需要重新判断shard的状态
-                        if(configure.getShardId() == null) {
+                    // need retry
+                    if (configure.getRetryTimes() < 0 || (configure.getRetryTimes() >= 0
+                        && retryCount < configure.getRetryTimes())) {
+                        // should update shards before retry
+                        if (configure.getShardId() == null) {
                             recordBuilder.updateShardIds();
                             recordBuilder.initRecordShardIds(recordEntries);
                         }
                     }
                 } else {
-                    if(logger.isDebugEnabled()){
-                        logger.debug("Write " + String.valueOf(recordCache.size()) + " record to topic["+ topic.getTopicName() + "] success");
+                    if (logger.isDebugEnabled()) {
+                        logger.debug(
+                            "Write " + String.valueOf(recordCache.size()) + " record to topic["
+                                + topic.getTopicName() + "] success");
                     }
 
                     this.recordCache.clear();
                     break;
                 }
             } catch (Exception e) {
-                logger.warn("Write record to topic["+ topic.getTopicName() + "] failed", e);
+                logger.warn("Write record to topic[" + topic.getTopicName() + "] failed", e);
             }
 
-            if(configure.getRetryTimes() >= 0 && retryCount >= configure.getRetryTimes()){
-                throw new RuntimeException("Write record to topic[" + topic.getTopicName() + "] failed");
+            if (configure.getRetryTimes() >= 0 && retryCount >= configure.getRetryTimes()) {
+                throw new RuntimeException(
+                    "Write record to topic[" + topic.getTopicName() + "] failed");
             }
 
-            logger.warn("Write record to topic["+ topic.getTopicName() + "] failed, will retry after " + configure.getRetryInterval() + "seconds");
+            logger.warn(
+                "Write record to topic[" + topic.getTopicName() + "] failed, will retry after "
+                    + configure.getRetryInterval() + "seconds");
             try {
                 Thread.sleep(configure.getRetryInterval() * 1000);
             } catch (InterruptedException e1) {
