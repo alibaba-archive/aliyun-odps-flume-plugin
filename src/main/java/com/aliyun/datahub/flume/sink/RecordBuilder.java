@@ -36,8 +36,7 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class RecordBuilder {
-    private final static Logger logger = LoggerFactory
-            .getLogger(RecordBuilder.class);
+    private final static Logger logger = LoggerFactory.getLogger(RecordBuilder.class);
 
     private Configure configure;
     private Topic topic;
@@ -87,7 +86,8 @@ public class RecordBuilder {
                 throw new RuntimeException("Shard column: " + col + " not exists in datahub!");
             }
             if (!inputColumns.contains(col)) {
-                throw new RuntimeException("Shard column: " + col + " not exists in input columns!");
+                throw new RuntimeException(
+                    "Shard column: " + col + " not exists in input columns!");
             }
             columnShardMappings.put(col, Boolean.TRUE);
         }
@@ -96,21 +96,22 @@ public class RecordBuilder {
                 throw new RuntimeException("Dateformat column: " + col + " not exists in datahub!");
             }
             if (!inputColumns.contains(col)) {
-                throw new RuntimeException("Dateformat column: " + col + " not exists in input columns!");
+                throw new RuntimeException(
+                    "Dateformat column: " + col + " not exists in input columns!");
             }
             columnDateformatMappings.put(col, Boolean.TRUE);
         }
 
         List<ShardEntry> shardEntries = topic.listShard();
-        for(ShardEntry shardEntry : shardEntries){
-            if(configure.getShardId() != null) {
-                if(configure.getShardId().equals(shardEntry.getShardId())) {
+        for (ShardEntry shardEntry : shardEntries) {
+            if (configure.getShardId() != null) {
+                if (configure.getShardId().equals(shardEntry.getShardId())) {
                     if (ShardState.ACTIVE.equals(shardEntry.getState())) {
                         shardIds.add(shardEntry.getShardId());
                     }
                     break;
                 }
-            } else{
+            } else {
                 if (ShardState.ACTIVE.equals(shardEntry.getState())) {
                     shardIds.add(shardEntry.getShardId());
                 }
@@ -118,15 +119,13 @@ public class RecordBuilder {
         }
 
         updateShardIds();
-        if(shardIds.size() == 0){
+        if (shardIds.size() == 0) {
             throw new RuntimeException("Topic[" + topic.getTopicName() + "] has not active shard");
         }
     }
 
-    public void setField(RecordEntry recordEntry,
-                              String fieldName,
-                              String fieldValue,
-                              boolean isDateFormat) throws ParseException {
+    public void setField(RecordEntry recordEntry, String fieldName, String fieldValue,
+        boolean isDateFormat) throws ParseException {
         if (!columnTypeMappings.containsKey(fieldName)) {
             throw new RuntimeException("field name: " + fieldName + " not existed in datahub!");
         }
@@ -158,7 +157,8 @@ public class RecordBuilder {
                     }
                     break;
                 default:
-                    throw new RuntimeException("Unknown column type: " + fieldType + " ,value is: " + fieldValue);
+                    throw new RuntimeException(
+                        "Unknown column type: " + fieldType + " ,value is: " + fieldValue);
             }
         }
     }
@@ -166,15 +166,15 @@ public class RecordBuilder {
     public void updateShardIds() {
         shardIds.clear();
         List<ShardEntry> shardEntries = topic.listShard();
-        for(ShardEntry shardEntry : shardEntries){
-            if(configure.getShardId() != null) {
-                if(configure.getShardId().equals(shardEntry.getShardId())) {
+        for (ShardEntry shardEntry : shardEntries) {
+            if (configure.getShardId() != null) {
+                if (configure.getShardId().equals(shardEntry.getShardId())) {
                     if (ShardState.ACTIVE.equals(shardEntry.getState())) {
                         shardIds.add(shardEntry.getShardId());
                     }
                     break;
                 }
-            } else{
+            } else {
                 if (ShardState.ACTIVE.equals(shardEntry.getState())) {
                     shardIds.add(shardEntry.getShardId());
                 }
