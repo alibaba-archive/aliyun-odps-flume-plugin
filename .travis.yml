@@ -1,0 +1,13 @@
+language: java
+install: mvn install -DskipTests=true -Dgpg.skip=true -Djavadoc.skip=true
+script: mvn package -DskipTests=true -Dgpg.skip=true -Djavadoc.skip=true
+before_deploy:
+- export RELEASE_JARS=$(ls target/*.tar.gz)
+- echo "deploying RELEASE_JARS to GitHub releases"
+deploy:
+  provider: releases
+  file_glob: true
+  file: target/*.tar.gz
+  skip_cleanup: true
+  on:
+    tags: true
