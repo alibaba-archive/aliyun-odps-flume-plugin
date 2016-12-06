@@ -1,4 +1,7 @@
 # Odps Sink Plugin for Apache Flume
+
+[![Build Status](https://travis-ci.org/aliyun/aliyun-odps-flume-plugin.svg?branch=master)](https://travis-ci.org/aliyun/aliyun-odps-flume-plugin)
+
 ---
 
 The Odps sink streams events data into a datahub topic. It has the following features:
