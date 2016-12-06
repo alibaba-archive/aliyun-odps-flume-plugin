@@ -11,6 +11,5 @@ deploy:
   skip_cleanup: true
   api_key:
     secure: WIEeeqQMHE8B6WbpEKYKN4OxGWZhjVVcblPW3SsO6r+fqJ4m9DhAchhTetr/XuMagr/r4ZR5m+0ivfQSQkxAg+r6EF72LM0dokaqKaSXNm1JihzXA3HhE8g+cUoEIF7UHOcB4+Q9oDhf5PlIJ9cKNYUVSKsmFVov1doRvvLnakpsyrv/12WGleQzlrw5TLgSITu5v6JxIUFOp8f1DHiiWBD6ZOftAVHmumwAvrJhf5bwLnPsQ1vBE+4tRMZj0mfh/vaFQs+RlB+o589u0f/wRZGmVOLljoagiOHfi2yGQCJGjFStv3JKN888Oq2BFfqHvoZnPWS7e5YO8giI2w7NWn2U8cOFMu21/Nmq7+nCADReqtNIThgtkryvcn4WRzqCdDl0KLDr/hC3XeQ/Ib5C1vAHbmJbzYjaz5/Ag3KKN5+PJkRsgha/7oZbNgB+XXdw7hCzP2eGiIxIqICc3Yxa0nxDN4grJjjP64ho7IkPT/HxctALhWhSpmXBJ6ItbeQ3MNwVvsIg0CPCk+rcZFPAuM+OOTMq0/VlUtmk8SgBX5Td/Npb2hFfVPMdxPTUWrpBkcSQeVfuNNN78M4iAfvebFmT5AgxQCqGlxdKUrgVTiYJe62xERbv1AlrFZml7b1UMWrT6myB7Z/2fjrQP80MLt5BjeB5bKNS2ytIVF/m/uo=
-  file: target
   on:
     tags: true
