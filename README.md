@@ -11,7 +11,7 @@ The Odps sink streams events data into a datahub topic. It has the following fea
 - Highly customizable.
 - Compatible with all the features of Flume, such as fan-in and fan-out flows, contextual routing and backup routes (fail-over) for failed hops.
 
-**NOTE: For non-developer users, please goto [WIKI (click here)](http://github.com/aliyun/aliyun-odps-flume-plugin/wiki/home).**
+**NOTE: For non-developer users, please goto [(click here)](https://yq.aliyun.com/articles/66112).**
 
 ## Getting Started
 ---
