@@ -39,11 +39,17 @@ $ cd aliyun-odps-flume-plugin/
 $ mvn clean package -DskipTests
 ```
 
-Wait until building success, the plugin will be now in the folder **aliyun-odps-flume-plugin/target/odps_sink/**.
+Wait until building success, the plugin will be **aliyun-odps-flume-plugin/target/flume-datahub-sink-x.x.x.tar.gz**.
 
 ### Use the Sink in Flume
 
-Move the plugin into the plugin directory of Flume (i.e., the folder **plugins.d/** under the Flume installation directory). If the plugin directory does not exist, create it at first:
+```
+$ tar zxvf flume-datahub-sink-x.x.x.tar.gz
+$ ls flume-datahub-sink
+lib    libext
+```
+
+Move the plugin flume-datahub-sink into the plugin directory of Flume (i.e., the folder **plugins.d/** under the Flume installation directory). If the plugin directory does not exist, create it at first:
 
 ```
 $ mkdir {YOUR_FLUME_DIRECTORY}/plugins.d
@@ -54,10 +60,10 @@ Optionally, you can check if the plugin is already in the directory:
 
 ```
 $ ls {YOUR_FLUME_DIRECTORY}/plugins.d
-odps_sink
+flume-datahub-sink
 ```
 
-The ODPS sink should be available for Flume now. You can use this sink by set the type of the Flume sink to **com.aliyun.odps.flume.sink.OdpsSink**. Details about the configure paramters of the ODPS sink are listed in [Sink Paramters](http://github.com/aliyun/aliyun-odps-flume-plugin/wiki/sink-parameter).
+The ODPS sink should be available for Flume now. You can use this sink by set the type of the Flume sink to **com.aliyun.datahub.flume.sink.DatahubSink**. Details about the configure paramters of the Datahub sink are listed in [Sink Paramters](http://github.com/aliyun/aliyun-odps-flume-plugin/wiki/sink-parameter).
 
 ## Tutorial
 ---
