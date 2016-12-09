@@ -53,7 +53,7 @@ Move the plugin flume-datahub-sink into the plugin directory of Flume (i.e., the
 
 ```
 $ mkdir {YOUR_FLUME_DIRECTORY}/plugins.d
-$ mv target/odps_sink/ {YOUR_FLUME_DIRECTORY}/plugins.d/
+$ mv flume-datahub-sink {YOUR_FLUME_DIRECTORY}/plugins.d/
 ```
 
 Optionally, you can check if the plugin is already in the directory:
