@@ -1,3 +1,5 @@
+### Moved to aliyun/aliyun-maxcompute-data-collectors: https://github.com/aliyun/aliyun-maxcompute-data-collectors
+
 # Odps Sink Plugin for Apache Flume
 
 [![Build Status](https://travis-ci.org/aliyun/aliyun-odps-flume-plugin.svg?branch=master)](https://travis-ci.org/aliyun/aliyun-odps-flume-plugin)
